@@ -1,5 +1,6 @@
 .gradle
 build/
+src/main/java/io/github/abcqwq/Main.java
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
