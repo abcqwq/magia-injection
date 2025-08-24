@@ -106,6 +106,7 @@ class ClassScannerTest {
         assertEquals("Failed to scan package: io.test", exception.getMessage());
     }
 
+    @SuppressWarnings("unchecked")
     private Set<Class<?>> invokeFindClassesInDirectory(File dir, String pkg) {
 
         try {
