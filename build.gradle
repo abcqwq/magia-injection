@@ -4,6 +4,7 @@ plugins {
 }
 
 group = 'io.github.abcqwq'
+version = System.getenv('VERSION')
 
 repositories {
     mavenCentral()
@@ -38,7 +39,6 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            version = System.getenv("VERSION") as Publication
         }
     }
 }
