@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ComponentScanner {
+    private ComponentScanner() {}
 
     @Experimental("Unreliable, please use the other API")
     public static Set<Class<?>> scan() {

@@ -2,6 +2,7 @@ package io.github.abcqwq.magia.injection.core;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ComponentContext {
 
@@ -17,7 +18,7 @@ public class ComponentContext {
         return (T) componentMap.get(clazz);
     }
 
-    public static boolean contains(Class<?> clazz) {
+    protected static boolean contains(Class<?> clazz) {
         return componentMap.containsKey(clazz);
     }
 }
