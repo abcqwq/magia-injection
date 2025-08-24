@@ -17,6 +17,9 @@ jobs:
           distribution: temurin
           java-version: 11
           cache: gradle
+      - name: Set version from Git tag
+        id: set_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - name: Build and publish
         run: ./gradlew publish
         env:
