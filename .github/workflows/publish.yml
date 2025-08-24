@@ -6,7 +6,11 @@ on:
       - 'v*'
 
 jobs:
+  run-tests:
+    uses: ./.github/workflows/test.yml
+
   publish:
+    needs: run-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
