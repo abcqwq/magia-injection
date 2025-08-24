@@ -1,7 +1,7 @@
-package io.github.abcqwq.core;
+package io.github.abcqwq.magia.injection.core;
 
-import io.github.abcqwq.annotation.Component;
-import io.github.abcqwq.annotation.Experimental;
+import io.github.abcqwq.magia.injection.annotation.Component;
+import io.github.abcqwq.magia.injection.annotation.Experimental;
 
 import java.util.Set;
 import java.util.stream.Collectors;

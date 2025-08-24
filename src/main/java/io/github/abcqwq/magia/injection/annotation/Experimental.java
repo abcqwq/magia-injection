@@ -1,4 +1,4 @@
-package io.github.abcqwq.annotation;
+package io.github.abcqwq.magia.injection.annotation;
 
 import java.lang.annotation.*;
 

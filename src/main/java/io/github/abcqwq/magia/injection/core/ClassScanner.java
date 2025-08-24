@@ -1,4 +1,4 @@
-package io.github.abcqwq.core;
+package io.github.abcqwq.magia.injection.core;
 
 import java.io.File;
 import java.io.IOException;
