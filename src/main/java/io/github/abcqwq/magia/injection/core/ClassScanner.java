@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 
 public class ClassScanner {
+    private ClassScanner() {}
 
     private static final String CLASS_SUFFIX = ".class";
     private static final String FILE_PROTOCOL = "file";
