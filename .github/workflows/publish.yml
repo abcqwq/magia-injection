@@ -8,18 +8,15 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 11
           cache: gradle
-
       - name: Build and publish
         run: ./gradlew publish
         env:
