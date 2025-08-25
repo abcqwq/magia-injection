@@ -1,8 +1,9 @@
 package io.github.abcqwq.magia.injection.core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class ComponentContext {
 
@@ -20,5 +21,14 @@ public class ComponentContext {
 
     protected static boolean contains(Class<?> clazz) {
         return componentMap.containsKey(clazz);
+    }
+
+    @SuppressWarnings("unchecked")
+    protected static <T> List<T> getInstancesOf(Class<T> clazz) {
+        return componentMap.entrySet().stream()
+                .filter(entry -> clazz.isAssignableFrom(entry.getKey()))
+                .map(Map.Entry::getValue)
+                .map(a -> (T) a)
+                .collect(Collectors.toList());
     }
 }

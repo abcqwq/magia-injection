@@ -4,6 +4,7 @@ import io.github.abcqwq.magia.injection.annotation.Component;
 
 import java.lang.reflect.Constructor;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class ComponentRegistrator {
@@ -75,6 +76,10 @@ public class ComponentRegistrator {
         return processedComponentsPath.stream()
                 .map(Class::getName)
                 .collect(Collectors.joining(pathDelimiter, "", pathDelimiter + processedComponentsPath.firstElement().getName()));
+    }
+
+    public static <T> void apply(Class<T> clazz, Consumer<T> consumer) {
+        ComponentContext.getInstancesOf(clazz).forEach(consumer);
     }
 
 }
