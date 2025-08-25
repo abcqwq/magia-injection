@@ -1,17 +1,14 @@
 package io.github.abcqwq.magia.injection.core;
 
-import io.github.abcqwq.magia.injection.annotation.Component;
 import org.junit.jupiter.api.Test;
+import testpkgs.simple.AnnotatedClass;
+import testpkgs.simple.NonAnnotatedClass;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Component
-class AnnotatedClass {}
-class NonAnnotatedClass {}
-
 class ComponentScannerTest {
 
-    private static final String BASE_PACKAGE = "io.github.abcqwq.magia.injection";
+    private static final String BASE_PACKAGE = "testpkgs.simple";
 
     @Test
     void scan() {

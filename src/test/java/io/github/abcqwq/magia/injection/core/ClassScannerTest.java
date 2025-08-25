@@ -1,10 +1,10 @@
 package io.github.abcqwq.magia.injection.core;
 
-import io.github.abcqwq.magia.injection.core.recursion.RootType;
-import io.github.abcqwq.magia.injection.core.recursion.level1.Level1Type;
-import io.github.abcqwq.magia.injection.core.recursion.level1.level2.Level2Type;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import testpkgs.recursion.RootType;
+import testpkgs.recursion.level1.Level1Type;
+import testpkgs.recursion.level1.level2.Level2Type;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClassScannerTest {
     
     private static final String TEST_PACKAGE = "io.test";
-    private static final String BASE_PACKAGE = "io.github.abcqwq.magia.injection";
+    private static final String BASE_PACKAGE = "testpkgs.simple";
 
     @TempDir
     File tempDir;
@@ -25,11 +25,8 @@ class ClassScannerTest {
     @Test
     void scanPackage_shouldFindCurrentTestClass() {
 
-        var testPackage = this.getClass().getPackageName();
+        var testPackage = "testpkgs.recursion";
         var classes = ClassScanner.scanPackage(testPackage);
-
-        assertTrue(classes.contains(this.getClass()),
-                "Expected ClassScanner to find " + this.getClass().getName());
 
         assertTrue(classes.contains(RootType.class),
                 "Expected ClassScanner to find " + RootType.class);
