@@ -1,4 +1,4 @@
-package io.github.abcqwq.cyclic;
+package testpkgs.cyclic;
 
 import io.github.abcqwq.magia.injection.annotation.Component;
 

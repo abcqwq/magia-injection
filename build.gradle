@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'java-test-fixtures'
 }
 
 group = 'io.github.abcqwq'
