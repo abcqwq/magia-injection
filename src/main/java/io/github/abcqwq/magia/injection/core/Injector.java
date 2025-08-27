@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Injector {
-  public static Object injectDependencies(Object instance) throws IllegalAccessException, InvocationTargetException {
+  public static <T> T injectDependencies(T instance) throws IllegalAccessException, InvocationTargetException {
     for (Field field : instance.getClass().getDeclaredFields()) {
       if (field.isAnnotationPresent(Inject.class)) {
         Object dependency = ComponentRegistrator.createComponent(field.getType());
@@ -21,13 +21,13 @@ public class Injector {
         Class<?>[] paramTypes = method.getParameterTypes();
         Object[] args = new Object[paramTypes.length];
         for (int i = 0; i < paramTypes.length; i++) {
-          args[i] =ComponentRegistrator.createComponent(paramTypes[i]);
+          args[i] = ComponentRegistrator.createComponent(paramTypes[i]);
         }
         method.setAccessible(true);
         method.invoke(instance, args);
       }
     }
 
-    return instance;
+    return (ClassScanner) instance;
   }
 }
