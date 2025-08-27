@@ -28,6 +28,6 @@ public class Injector {
       }
     }
 
-    return (ClassScanner) instance;
+    return instance;
   }
 }
