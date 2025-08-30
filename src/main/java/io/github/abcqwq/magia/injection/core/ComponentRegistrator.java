@@ -24,7 +24,7 @@ public class ComponentRegistrator {
         }
     }
 
-    private static Object createComponent(Class<?> cls) {
+    protected static Object createComponent(Class<?> cls) {
 
         if (!cls.isAnnotationPresent(Component.class)) {
             throw new IllegalStateException(String.format("No instance of %s class found", cls));
@@ -49,7 +49,8 @@ public class ComponentRegistrator {
         try {
 
             var instance = constructor.newInstance(args);
-            ComponentContext.register(cls, instance);
+            var injectedInstance = Injector.injectDependencies(instance);
+            ComponentContext.register(cls, injectedInstance);
             return instance;
 
         } catch (Exception e) {
